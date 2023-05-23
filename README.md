@@ -1,2 +1,5 @@
 # csv_translator
 借助chatgpt对数据集的某一列进行批量翻译
+
+这里使用的是ag_news数据集，本项目将Title和Description两个列合并为texts列
+然后调用GPT对texts中的文本进行批量翻译
