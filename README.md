@@ -1,0 +1,2 @@
+# csv_translator
+借助chatgpt对数据集的某一列进行批量翻译
