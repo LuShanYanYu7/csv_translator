@@ -7,7 +7,7 @@ from dotenv import load_dotenv, find_dotenv
 
 _ = load_dotenv(find_dotenv())  # read local .env file
 
-openai.api_key = os.getenv('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')
+openai.api_key = os.getenv('YOUR-OPENAI-KAY')
 
 
 def get_completion(prompt, model="gpt-4-0314", temperature=0):
