@@ -2,12 +2,9 @@ import openai
 import os
 import csv
 import time
+import pandas as pd
 
-from dotenv import load_dotenv, find_dotenv
-
-_ = load_dotenv(find_dotenv())  # read local .env file
-
-openai.api_key = os.getenv('YOUR-OPENAI-KAY')
+openai.api_key = os.getenv('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')
 
 
 def get_completion(prompt, model="gpt-4-0314", temperature=0):
@@ -34,7 +31,6 @@ with open('../datasets/ag-news/test.csv', 'r', newline='', encoding='utf-8') as 
         texts.append(entry)
 
 # print(texts)
-# print(len(texts))# 12000
 
 translated = []
 for i, text in enumerate(texts):
@@ -53,4 +49,17 @@ for i, text in enumerate(texts):
     else:
         continue
 
-print(translated)
+# print(translated)
+
+print("length of original text:" + len(texts))
+print("length of translated text:" + len(translated))
+
+if len(texts) == len(translated):
+    # Load the dataset
+    df = pd.read_csv('../datasets/ag-news/test.csv')
+
+    # Update the 'texts_translated' column in the DataFrame
+    df['texts_translated'] = pd.dataframe(translated)
+
+    # Save the updated DataFrame to the CSV file
+    df.to_csv('../datasets/ag-news/test.csv', index=False)
