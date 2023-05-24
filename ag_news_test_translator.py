@@ -22,7 +22,7 @@ def get_completion(prompt, model="gpt-4-0314", temperature=0):
 
 texts = []
 
-with open('../datasets/ag-news/train.csv', 'r', newline='', encoding='utf-8') as csv_file:
+with open('../datasets/ag-news/test.csv', 'r', newline='', encoding='utf-8') as csv_file:
     reader = csv.reader(csv_file, delimiter=',')
 
     header = next(reader)
